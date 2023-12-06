@@ -1,12 +1,9 @@
-import React, {Component} from "react"
+import React, {Component, useState} from "react"
 import {Table, Button} from "reactstrap"
 
-class App extends Component {
-    
-    state = {
-        isLoading:false,
-        invoices: 
-            [
+function App() {
+    const [isLoading, setIsLoading]=useState(false)
+        let invoices= [
                 {
                     "id": "100",
                     "Vendor": "Hankook",
@@ -30,12 +27,6 @@ class App extends Component {
                 }
             ]
 
-      } 
-    render() { 
-        const isLoading = this.state.isLoading;
-        const invoices= this.state.invoices;
-        
-
             if (isLoading)
             return <div>Loading...</div>;
 
@@ -46,7 +37,7 @@ class App extends Component {
              <h1>Pending Invoices- The Test Company</h1>
             </div>
             </div>
-            <div Classname="row">
+            <div className="row">
                 <div className=".col-xs-12 center text-center">
                 <Table responsive striped bordered hover>
                     <thead>
@@ -58,7 +49,7 @@ class App extends Component {
                         <th> Image</th>
                     </thead>
                     <tbody>
-                    {this.state.invoices.length === 0 ? <td colSpan="9">All caught up!</td>: invoices}
+                    {invoices.length === 0 ? <td colSpan="9">All caught up!</td>: invoices}
                     </tbody>
                 </Table>
                 </div>
@@ -66,6 +57,6 @@ class App extends Component {
            </div>
         );
     }
-}
+
  
 export default App;
