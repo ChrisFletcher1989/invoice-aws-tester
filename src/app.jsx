@@ -26,7 +26,14 @@ function App() {
                     "Date": "18-01-2019"
                 }
             ]
-
+        let allInvoices=invoices.map((invoice) =>
+        <tr key={invoice.id}>
+            <td>{invoice.Vendor}</td>
+            <td>{invoice.Amount}</td>
+            <td>{invoice.Invoice}</td>
+            <td>{invoice.Date}</td>
+         </tr>
+        )
             if (isLoading)
             return <div>Loading...</div>;
 
@@ -49,7 +56,7 @@ function App() {
                         <th> Image</th>
                     </thead>
                     <tbody>
-                    {invoices.length === 0 ? <td colSpan="9">All caught up!</td>: invoices}
+                    {invoices.length === 0 ? <td colSpan="9">All caught up!</td>: allInvoices}
                     </tbody>
                 </Table>
                 </div>
